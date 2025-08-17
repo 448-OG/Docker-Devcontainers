@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "ubuntu25.04-rust-nodejs",
+	// "postCreateCommand": "sh .devcontainer/system-packages.sh && sh .devcontainer/mold.sh && sh .devcontainer/rust-packages.sh",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"rust-lang.rust-analyzer",
+				"bracketpaircolordlw.bracket-pair-color-dlw",
+				"streetsidesoftware.code-spell-checker",
+				"naumovs.color-highlight",
+				"ms-azuretools.vscode-containers",
+				"fill-labs.dependi",
+				"donjayamanne.githistory",
+				"waderyan.gitblame",
+				"tamasfe.even-better-toml",
+				"docker.docker",
+				"github.vscode-github-actions",
+				"redhat.vscode-yaml",
+				"dtsvet.vscode-wasm",
+				"gruntfuggly.todo-tree",
+				"esbenp.prettier-vscode",
+				"yzhang.markdown-all-in-one",
+				"mrmlnc.vscode-json5",
+				"meezilla.json"
+			]
+		}
+	}
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
