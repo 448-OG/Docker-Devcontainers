@@ -31,9 +31,9 @@ echo "[INFO] Step 3 completed."
 echo "[INFO] Step 4: Installing additional Rust tools (cargo-binstall, nu, bat)..."
 if cargo install cargo-binstall ;
 then
-    cargo binstall bat nu cargo-deny -y
+    cargo binstall bat nu cargo-deny cargo-watch starship -y
 else
-    cargo install bat nu cargo-deny
+    cargo install bat nu cargo-deny cargo-watch starship
 fi
 echo "[INFO] Step 4 completed."
 
