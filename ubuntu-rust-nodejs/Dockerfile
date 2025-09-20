@@ -1,4 +1,6 @@
-FROM ubuntu25.04-rust
+ARG RUST_UBUNTU_VERSIONS=rust.v1.90.0-ubuntu.v25.04
+
+FROM ${RUST_UBUNTU_VERSIONS}
 
 ARG CONFIG_DIR=/root/base
 
