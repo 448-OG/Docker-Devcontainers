@@ -25,8 +25,7 @@
 				"gruntfuggly.todo-tree",
 				"esbenp.prettier-vscode",
 				"yzhang.markdown-all-in-one",
-				"mrmlnc.vscode-json5",
-				"meezilla.json"
+				"mrmlnc.vscode-json5"
 			]
 		}
 	}

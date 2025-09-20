@@ -31,10 +31,18 @@ echo "[INFO] Step 3 completed."
 echo "[INFO] Step 4: Installing additional Rust tools (cargo-binstall, nu, bat)..."
 if cargo install cargo-binstall ;
 then
-    cargo binstall bat nu cargo-deny cargo-watch starship -y
+    cargo binstall bat nu cargo-deny cargo-watch starship cargo-make cargo-update -y
 else
-    cargo install bat nu cargo-deny cargo-watch starship
+    cargo install bat nu cargo-deny cargo-watch starship cargo-make
 fi
 echo "[INFO] Step 4 completed."
+
+echo "[INFO] Add Rust path to nushell config written to $HOME/.config/nushell/config.nu"
+mkdir -p $HOME/.config/nushell/
+touch $HOME/.config/nushell/config.nu
+cat <<EOF > $HOME/.config/nushell/config.nu
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/root/.cargo/bin')
+EOF
+echo "[INFO] completed."
 
 echo "[INFO] All steps completed successfully."
