@@ -42,6 +42,33 @@ mkdir -p $HOME/.config/nushell/
 touch $HOME/.config/nushell/config.nu
 cat <<'EOF' >> $HOME/.config/nushell/config.nu
 
+alias upgradable = sudo apt list --upgradable
+alias update = sudo apt update
+alias upgrade = sudo apt upgrade
+alias dist_upgrade = sudo apt dist-upgrade
+alias cargo_install_path = cargo install --path .
+alias install_update = cargo install-update -a
+alias check_watch = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo check"
+alias watch_debug = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=debug cargo run"
+alias watch_trace = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo run"
+alias watch_info = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=info cargo run"
+
+def watch_debug_example [value: string] {
+    cargo watch -c -w src -w Cargo.toml -w $"examples/($value).rs" -s $"RUST_LOG=debug cargo run --example ($value)"
+}
+
+def watch_trace_example [value: string] {
+    cargo watch -c -w src -w Cargo.toml -w $"examples/($value).rs" -s $"RUST_LOG=trace cargo run --example ($value)"
+}
+
+def watch_info_example [value: string] {
+    cargo watch -c -w src -w Cargo.toml -w $"examples/($value).rs" -s $"RUST_LOG=info cargo run --example ($value)"
+}
+
+alias watch_error = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=error cargo run"
+alias test_watch = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test"
+alias test_watch_all_features = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test --verbose --all-features"
+
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/root/.cargo/bin')
 EOF
 echo "[INFO] completed."
