@@ -3,7 +3,7 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "nodejs.v22.19.0-rust.v1.90.0-ubuntu.v25.04",
+	"image": "nodejs.v24.11.0-rust.v1.91.0-ubuntu.v25.04",
 	// "postCreateCommand": "sh .devcontainer/system-packages.sh && sh .devcontainer/mold.sh && sh .devcontainer/rust-packages.sh",
 	// Configure tool-specific properties.
 	"customizations": {
