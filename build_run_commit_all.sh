@@ -8,13 +8,13 @@ RUST_UBUNTU_VERSIONS="${RUST_VERSION}-${UBUNTU_VERSION}"
 NODEJS_RUST_UBUNTU_VERSIONS="${NODEJS_VERSION}-${RUST_VERSION}-${UBUNTU_VERSION}"
 
 
-echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
-docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" && \
-echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
+# echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
+# docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" && \
+# echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
 
-echo "[INFO] Building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
-docker build -t "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" ./ubuntu-rust/. && \
-echo "[INFO] DONE: building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
+# echo "[INFO] Building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
+# docker build -t "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" ./ubuntu-rust/. && \
+# echo "[INFO] DONE: building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
 
 echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
 docker rm -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \

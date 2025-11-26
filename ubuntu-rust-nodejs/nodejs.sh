@@ -7,9 +7,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 source "$HOME/.nvm/nvm.sh"
 echo "[INFO] Step 1: Done installing nvm..."
 
-echo "[INFO] Step 2: Installing Nodejs v22 & npm..."
+echo "[INFO] Step 2: Installing Nodejs v24 & npm..."
 # Download and install Node.js:
-nvm install 22
+nvm install 24
 
 # Verify the Node.js version:
 node -v 
