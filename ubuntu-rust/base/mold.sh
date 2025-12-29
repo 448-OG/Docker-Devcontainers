@@ -13,6 +13,11 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/rui314/mold/releases/latest 
 echo "[INFO] Download URL: $DOWNLOAD_URL"
 echo "[INFO] Step 2 completed."
 
+if [ -z "$DOWNLOAD_URL" ]; then
+  echo "[ERROR] DOWNLOAD_URL is empty or null"
+  exit 1
+fi
+
 echo "[INFO] Step 3: Downloading the tar.gz file..."
 curl -sL -o /tmp/mold.tar.gz "$DOWNLOAD_URL"
 echo "[INFO] File downloaded to /tmp/mold.tar.gz"

@@ -16,21 +16,21 @@ NODEJS_RUST_UBUNTU_VERSIONS="${NODEJS_VERSION}-${RUST_VERSION}-${UBUNTU_VERSION}
 # docker build -t "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" ./ubuntu-rust/. && \
 # echo "[INFO] DONE: building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
 
-echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
-docker rm -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \
-echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION} container"
+# echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
+# docker rm -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \
+# echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION} container"
 
-echo "[INFO] Running ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
-docker run --name  "${RUST_VERSION}-${UBUNTU_VERSION}"  "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" && \
-echo "[INFO] DONE: Finished running ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
+# echo "[INFO] Running ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
+# docker run --name  "${RUST_VERSION}-${UBUNTU_VERSION}"  "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" && \
+# echo "[INFO] DONE: Finished running ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
 
-echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker image"
-docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \
-echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION} docker image"
+# echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker image"
+# docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \
+# echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION} docker image"
 
-echo "[INFO] Committing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
-docker commit  "${RUST_VERSION}-${UBUNTU_VERSION}" "${RUST_VERSION}-${UBUNTU_VERSION}" && \
-echo "[INFO] Done committing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
+# echo "[INFO] Committing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
+# docker commit  "${RUST_VERSION}-${UBUNTU_VERSION}" "${RUST_VERSION}-${UBUNTU_VERSION}" && \
+# echo "[INFO] Done committing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
 
 
 echo "--------------------------------------------"
