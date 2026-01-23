@@ -32,6 +32,24 @@ echo "[INFO] Step 4: Done installing pnpm..."
 echo "[INFO] Add NVM Nodejs path to nushell config written to $HOME/.config/nushell/config.nu"
 cat <<'EOF' >> $HOME/.config/nushell/config.nu
 
-$env.PATH = ($env.PATH | split row (char esep) | prepend '/root/.nvm/versions/node/v22.19.0/bin')
+
+let node_bin = (
+    ls /root/.nvm/versions/node
+    | insert base {|r| $r.name | path basename }
+    | where base =~ '^v\d+\.\d+\.\d+$'
+    | insert ver {|r|
+        $r.base
+        | str replace --regex '^v' ''
+        | split row '.'
+        | each {|n| $n | into int }
+    }
+    | sort-by ver
+    | last
+    | get base
+    | path join /root/.nvm/versions/node $in bin
+)
+
+$env.PATH = ($env.PATH | split row (char esep) | prepend $node_bin)
+
 EOF
 echo "[INFO] completed."

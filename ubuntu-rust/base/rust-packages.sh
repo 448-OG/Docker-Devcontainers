@@ -31,9 +31,9 @@ echo "[INFO] Step 3 completed."
 echo "[INFO] Step 4: Installing additional Rust tools (cargo-binstall, nu, bat)..."
 if cargo install cargo-binstall ;
 then
-    cargo binstall bat nu cargo-deny cargo-watch starship cargo-make cargo-update -y
+    cargo binstall bat nu cargo-deny cargo-watch starship cargo-make cargo-update  lsd eza cargo-audit cargo-deny cargo-duplicates cargo-geiger cargo-udeps cargo-generate cargo-watch cargo-make fd-find hyperfine pastel svgcleaner tokei hexyl xh -y
 else
-    cargo install bat nu cargo-deny cargo-watch starship cargo-make
+    cargo install bat nu cargo-deny cargo-watch starship cargo-make lsd eza cargo-audit cargo-deny cargo-duplicates cargo-geiger cargo-udeps cargo-generate cargo-watch cargo-make fd-find hyperfine pastel svgcleaner tokei hexyl xh 
 fi
 echo "[INFO] Step 4 completed."
 
@@ -70,6 +70,7 @@ alias test_watch = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo 
 alias test_watch_all_features = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test --verbose --all-features"
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/root/.cargo/bin')
+
 EOF
 echo "[INFO] completed."
 
