@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -e  # Exit immediately if a command exits with a non-zero status
+set -euo pipefail
+trap 'echo "[ERROR] Script failed at line $LINENO"' ERR
 
 export $(grep -v '^#' .build-env | xargs)
 
@@ -12,30 +14,28 @@ echo "[INFO] Removing all docker images, volumes, networks and containers"
 docker system prune -a --volumes -f
 echo "[INFO] DONE: removing  all docker images, volumes, networks and containers"
 
-
 echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
-docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" && \
+docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}-base-image"
 echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
 
 echo "[INFO] Building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
-docker build -t "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" ./ubuntu-rust/. && \
+docker build -t "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" ./ubuntu-rust/.
 echo "[INFO] DONE: building ${RUST_VERSION}-${UBUNTU_VERSION}-base-image docker image"
 
 echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
-docker rm -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \
+docker rm -f "${RUST_VERSION}-${UBUNTU_VERSION}"
 echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION} container"
 
 echo "[INFO] Running ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
-docker run --name  "${RUST_VERSION}-${UBUNTU_VERSION}"  "${RUST_VERSION}-${UBUNTU_VERSION}-base-image" && \
+docker run --name "${RUST_VERSION}-${UBUNTU_VERSION}" "${RUST_VERSION}-${UBUNTU_VERSION}-base-image"
 echo "[INFO] DONE: Finished running ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
 
 echo "[INFO] Removing ${RUST_VERSION}-${UBUNTU_VERSION} docker image"
-docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}" && \
+docker rmi -f "${RUST_VERSION}-${UBUNTU_VERSION}"
 echo "[INFO] DONE: removing ${RUST_VERSION}-${UBUNTU_VERSION} docker image"
 
 echo "[INFO] Committing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
-
-docker commit  "${RUST_VERSION}-${UBUNTU_VERSION}" "${RUST_VERSION}-${UBUNTU_VERSION}" && \
+docker commit "${RUST_VERSION}-${UBUNTU_VERSION}" "${RUST_VERSION}-${UBUNTU_VERSION}"
 echo "[INFO] Done committing ${RUST_VERSION}-${UBUNTU_VERSION} docker container"
 
 
@@ -106,7 +106,3 @@ echo "[INFO] DONE: Finished leaning up..."
 
 
 echo "[INFO] DONE CREATE, RUN, COMMIT docker images"
-
-
-
-
