@@ -3,7 +3,7 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "solana.v3.0.14",
+	"image": "surfpool-v1.2",
 	// "postCreateCommand": "sh .devcontainer/system-packages.sh && sh .devcontainer/mold.sh && sh .devcontainer/rust-packages.sh",
 	// Configure tool-specific properties.
 	"customizations": {

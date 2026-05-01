@@ -60,9 +60,9 @@ def watch_info_example [value: string] {
     cargo watch -c -w src -w Cargo.toml -w $"examples/($value).rs" -s $"RUST_LOG=info cargo run --example ($value)"
 }
 
-alias watch_error = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=error cargo run"
-alias test_watch = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test"
-alias test_watch_all_features = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test --verbose --all-features"
+alias watch_error = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=error cargo run -- --no-capture"
+alias test_watch = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test -- --no-capture"
+alias test_watch_all_features = cargo watch -c -w src -w Cargo.toml -s "RUST_LOG=trace cargo test --verbose --all-features -- --no-capture"
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/root/.cargo/bin')
 
