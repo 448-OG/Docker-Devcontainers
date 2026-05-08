@@ -30,6 +30,7 @@ echo "[INFO] Step 3 completed."
 
 echo "[INFO] Step 4: Installing additional Rust tools (cargo-binstall, nu, bat)..."
 cargo install bat nu cargo-deny cargo-watch starship cargo-make lsd eza cargo-audit cargo-deny cargo-duplicates cargo-geiger cargo-udeps cargo-generate cargo-watch cargo-make hyperfine pastel svgcleaner tokei hexyl xh 
+cargo install cargo-nextest --locked
 echo "[INFO] Step 4 completed."
 
 echo "[INFO] Add Rust path to nushell config written to $HOME/.config/nushell/config.nu"
