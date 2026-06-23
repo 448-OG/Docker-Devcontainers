@@ -3,29 +3,27 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "rust.v1.95-ubuntu.v26.04",
+	"image": "rust.v1.96-ubuntu.v26.04",
 	// "postCreateCommand": "sh .devcontainer/system-packages.sh && sh .devcontainer/mold.sh && sh .devcontainer/rust-packages.sh",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"rust-lang.rust-analyzer",
-				"bracketpaircolordlw.bracket-pair-color-dlw",
-				"streetsidesoftware.code-spell-checker",
-				"naumovs.color-highlight",
-				"ms-azuretools.vscode-containers",
-				"fill-labs.dependi",
-				"donjayamanne.githistory",
-				"waderyan.gitblame",
+				"dioxuslabs.dioxus",
 				"tamasfe.even-better-toml",
-				"docker.docker",
-				"github.vscode-github-actions",
-				"redhat.vscode-yaml",
-				"dtsvet.vscode-wasm",
-				"gruntfuggly.todo-tree",
 				"esbenp.prettier-vscode",
-				"yzhang.markdown-all-in-one",
-				"mrmlnc.vscode-json5"
+				"pdconsec.vscode-print",
+				"bradlc.vscode-tailwindcss",
+				"gruntfuggly.todo-tree",
+				"redhat.vscode-xml",
+				"redhat.vscode-yaml",
+				"streetsidesoftware.code-spell-checker",
+				"fill-labs.dependi",
+				"waderyan.gitblame",
+				"donjayamanne.githistory",
+				"eamodio.gitlens",
+				"yzhang.markdown-all-in-one"
 			]
 		}
 	}

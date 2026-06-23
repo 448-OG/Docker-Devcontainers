@@ -6,7 +6,6 @@ ARG CONFIG_DIR=/root/base
 
 RUN mkdir -p ${CONFIG_DIR}
 COPY ./bin/ ${CONFIG_DIR}
-COPY ./surfpool ${CONFIG_DIR}
 WORKDIR ${CONFIG_DIR}
 
 RUN bash -c 'mv ${CONFIG_DIR}/* /usr/sbin'

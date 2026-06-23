@@ -1,4 +1,4 @@
 export DEBIAN_FRONTEND=noninteractive
 export TZ=UTC
 
-apt update && apt  install -y sudo ripgrep bash nano curl libssl-dev pkg-config jq git clang libwebkit2gtk-4.1-dev libudev-dev zip psmisc wget iproute2 gcc clang make cmake
+apt update && apt  install -y sudo ripgrep bash nano curl libssl-dev pkg-config jq git clang libwebkit2gtk-4.1-dev libudev-dev zip psmisc wget iproute2 gcc clang make cmake zstd
