@@ -3,7 +3,7 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "nodejs.v24-rust.v1.96-ubuntu.v26.04",
+	"image": "nodejs.v24-rust.v1.99.1-ubuntu.v26.04",
 	// "postCreateCommand": "sh .devcontainer/system-packages.sh && sh .devcontainer/mold.sh && sh .devcontainer/rust-packages.sh",
 	// Configure tool-specific properties.
 	"customizations": {
@@ -11,7 +11,7 @@
 			"extensions": [
 				"rust-lang.rust-analyzer",
 				"dioxuslabs.dioxus",
-				"tamasfe.even-better-toml",
+				"tombi-toml.tombi",
 				"esbenp.prettier-vscode",
 				"pdconsec.vscode-print",
 				"bradlc.vscode-tailwindcss",

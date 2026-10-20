@@ -69,39 +69,10 @@ echo "[INFO] Done committing $NODEJS_RUST_UBUNTU_VERSIONS docker container"
 
 echo "--------------------------------------------"
 
-
-
-echo "[INFO] Removing ${SURFPOOL_VERSION}-base-image docker image"
-docker rmi -f "${SURFPOOL_VERSION}-base-image" && \
-echo "[INFO] DONE: removing ${SURFPOOL_VERSION}-base-image docker image"
-
-echo "[INFO] Building ${SURFPOOL_VERSION}-base-image docker image"
-docker build --build-arg NODEJS_RUST_UBUNTU_VERSIONS="$NODEJS_RUST_UBUNTU_VERSIONS" -t "${SURFPOOL_VERSION}-base-image" ./solana-ubuntu-rust-nodejs/. && \
-echo "[INFO] DONE: building ${SURFPOOL_VERSION}-base-image docker image"
-
-echo "[INFO] Removing ${SURFPOOL_VERSION} docker container"
-docker rm -f "${SURFPOOL_VERSION}" && \
-echo "[INFO] DONE: removing ${SURFPOOL_VERSION} container"
-
-echo "[INFO] Running ${SURFPOOL_VERSION} docker container"
-docker run --name  "${SURFPOOL_VERSION}"  "${SURFPOOL_VERSION}-base-image" && \
-echo "[INFO] DONE: Finished running ${SURFPOOL_VERSION} docker container"
-
-echo "[INFO] Removing ${SURFPOOL_VERSION} docker image"
-docker rmi -f "${SURFPOOL_VERSION}" && \
-echo "[INFO] DONE: removing ${SURFPOOL_VERSION} docker image"
-
-echo "[INFO] Committing ${SURFPOOL_VERSION} docker container"
-docker commit  "${SURFPOOL_VERSION}" "${SURFPOOL_VERSION}" && \
-echo "[INFO] Done committing ${SURFPOOL_VERSION} docker container"
-
-
 echo "[INFO] Cleaning up... "
 docker rmi -f "${NODEJS_RUST_UBUNTU_VERSIONS}-base-image" && \
-docker rmi -f "${SURFPOOL_VERSION}-base-image" && \
 docker rm -f "${RUST_UBUNTU_VERSIONS}" && \
 docker rm -f "${NODEJS_RUST_UBUNTU_VERSIONS}" && \
-docker rm -f "${SURFPOOL_VERSION}" && \
 echo "[INFO] DONE: Finished leaning up..."
 
 
